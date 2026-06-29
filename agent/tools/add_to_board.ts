@@ -5,7 +5,7 @@ import { readBoard, writeBoard } from "@/lib/yours";
 
 const Input = z.object({ role: z.string(), entry: BoardEntry });
 
-export async function addToBoard(input: z.infer<typeof Input>): Promise<{ count: number }> {
+export async function addToBoard(input: z.input<typeof Input>): Promise<{ count: number }> {
   const { role, entry } = Input.parse(input);
   const board = readBoard();
   if (!board.role) board.role = role;

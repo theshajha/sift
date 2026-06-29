@@ -2,18 +2,20 @@ import { describe, it, expect, beforeEach, afterEach } from "vitest";
 import { mkdtempSync, rmSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
+import type { z } from "zod";
 import { addToBoard } from "@/agent/tools/add_to_board";
 import { readBoard } from "@/lib/yours";
+import { BoardEntry } from "@/lib/schema/board";
 
 let dir: string;
 beforeEach(() => { dir = mkdtempSync(join(tmpdir(), "reply-")); process.env.REPLY_YOURS_DIR = dir; });
 afterEach(() => rmSync(dir, { recursive: true, force: true }));
 
-const entry = {
+const entry: z.input<typeof BoardEntry> = {
   candidate: { id: "ada", name: "Ada", contact: "ada@x.com", roleAppliedFor: "Eng", message: "hi", source: "file", receivedAt: "t" },
-  bucket: "worth_your_time" as const,
+  bucket: "worth_your_time",
   reason: "Real systems work.",
-  preparedBy: ["screener"] as const,
+  preparedBy: ["screener"],
 };
 
 describe("add_to_board", () => {
