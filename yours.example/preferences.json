@@ -1,0 +1,6 @@
+{
+  "send": false,
+  "research": true,
+  "adapters": ["file"],
+  "gmailLabel": "INBOX"
+}
