@@ -21,7 +21,7 @@ const mono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Sift",
-  description: "Find the right candidates without reading the pile.",
+  description: "Spend more time talking to the right candidates.",
 };
 
 export default function RootLayout({ children }: { readonly children: ReactNode }) {

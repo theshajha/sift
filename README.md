@@ -1,5 +1,7 @@
 # Sift
 
+### Spend more time talking to the right candidates.
+
 ![Sift: from a pile of inbound to the right fit](public/twitter-banner.png)
 
 Find the right candidates without reading the pile. Keep everyone else worth keeping.

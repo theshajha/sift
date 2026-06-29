@@ -26,7 +26,7 @@ export default function BoardPage() {
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", gap: "1rem" }}>
         <div>
           <h1 style={{ fontSize: "2rem", fontWeight: 600, margin: 0 }}>Sift</h1>
-          <p style={{ color: "var(--muted-foreground)", marginTop: "0.25rem" }}>The right candidates, without reading the pile.</p>
+          <p style={{ color: "var(--muted-foreground)", marginTop: "0.25rem" }}>Spend more time talking to the right candidates.</p>
         </div>
         <a href="/" style={{ color: "var(--primary)", fontSize: "0.875rem", whiteSpace: "nowrap" }}>Talk to Sift →</a>
       </div>
