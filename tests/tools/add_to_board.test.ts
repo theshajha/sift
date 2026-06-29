@@ -2,7 +2,7 @@ import { describe, it, expect, beforeEach, afterEach } from "vitest";
 import { mkdtempSync, rmSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { addToBoard } from "./add_to_board";
+import { addToBoard } from "@/agent/tools/add_to_board";
 import { readBoard } from "@/lib/yours";
 
 let dir: string;

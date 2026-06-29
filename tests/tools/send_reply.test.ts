@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { assertSendAllowed } from "./send_reply";
+import { assertSendAllowed } from "@/agent/tools/send_reply";
 
 describe("send gate", () => {
   it("throws a plain-language refusal when send is off", () => {
