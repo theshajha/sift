@@ -16,7 +16,8 @@ export type Draft = z.infer<typeof Draft>;
 
 export const BoardEntry = z.object({
   candidate: InboundCandidate,
-  bucket: Bucket,
+  fit: z.number().min(0).max(100).default(0),
+  bucket: Bucket.default("maybe"),
   reason: z.string(),
   context: z.array(z.string()).default([]),
   draft: Draft.optional(),

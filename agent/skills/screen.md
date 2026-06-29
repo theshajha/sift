@@ -1,15 +1,15 @@
 ---
-description: Use to place an applicant on the shortlist, worth a look, or keep for later.
+description: Use to score how well a candidate's resume fits what the operator is looking for.
 ---
 
-Read the role and rubric from read_yours. Place the applicant in exactly one bucket:
+Read the operator's role text from read_yours. It is free text, in their own words. For the
+candidate's resume, give an honest fit score from 0 to 100 and one plain sentence on why.
 
-- worth_your_time (the shortlist): clearly matches "what a yes looks like". These are
-  the people worth their time right now.
-- maybe (worth a look): promising but missing one signal named in the rubric.
-- pass (keep for later): not right for this role. This is not a rejection and not a dead
-  end. Decide whether they are worth remembering, and if so for what, for example a
-  different level or a role they are likely to open next. Say it plainly.
+- High (roughly 75 and up): clearly matches what they asked for, with real, relevant depth.
+- Middle (roughly 40 to 74): something is there, but a signal is missing, or they are strong
+  in a nearby area rather than the one asked for.
+- Low (under 40): not a fit for this search.
 
-Write one plain sentence on why. Judge the work, not the person. If there is genuinely no
-signal at all, keep for later with a short note that there is nothing to act on.
+Use the whole range and rank on the merits. Judge the work, not the person. Pull the real
+name from the resume. Keep the reason to one sentence: what makes them a fit, or what is
+missing.

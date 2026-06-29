@@ -4,55 +4,49 @@
 
 ![Sift: from a pile of inbound to the right fit](public/twitter-banner.png)
 
-Find the right candidates without reading the pile. Keep everyone else worth keeping.
+Find the right candidates without reading the pile.
 
-Hiring buries you in inbound. Sift reads every applicant so you do not have to. It puts the few worth your time at the top in minutes instead of hours, and keeps the rest in one list you can actually stay on top of. The strong applicant who is not right for this role does not vanish into your inbox. They are the first name you pull up the next time you are hiring.
+Hiring buries you in resumes. Sift reads every one so you do not have to, and hands back a ranked shortlist: the best fits first, each with one plain line on why. Minutes, not an afternoon.
 
 Made by [Re:Work](https://rwhq.io). If you would rather someone just ran your hiring, that is what Re:Work does. This is the same judgment, open and yours to run.
 
-## What it does
+## How it works
 
-- **Shortlist.** Sift reads the whole pile and puts the people worth your time at the top, each with one plain line on why. Minutes, not an afternoon.
-- **Keep everyone, across rounds.** Nobody good gets lost. Each applicant who is not right for this role is kept and tagged for what they might be right for: a different level, a role you open next quarter. The pool persists between hires, so the strong applicant from last time is the first name Sift surfaces the next time you run it. Your inbound becomes a list that gets easier to stay on top of, not harder.
-- **Reach out when you want.** When you are ready to talk to someone, Sift drafts the message in your voice and you send it. That part is optional, and it comes last, not first.
+1. Tell Sift, in a sentence, who you are looking for.
+2. Drop your resumes into a folder (PDF or text).
+3. Run it. You get a ranked list, best fit first, each with one line on why.
 
-Built as an agent, so the real work lives in plain-language instructions you can read and change.
+It ships with a dozen sample resumes, so it works the second you clone it. Clear them out and drop in your own when you are ready.
+
+Built as an agent: the real work lives in plain-language instructions you can read and change. It runs locally with Claude or any agent, so your resumes never leave your machine.
 
 ## Quickstart
 
 ```bash
 npm install
-npm run onboard          # sets up yours/: your role, your rubric, your preferences
-# drop a CSV or JSON export of your inbound into yours/inbound/
-npx eve dev              # talk to Sift, then type: run
+npm run onboard          # creates yours/ and asks who you are looking for
+npx eve dev              # then type: run, and open /board
 ```
 
-Then open `/board` to see this run's shortlist and maybes, and `/pool` to see everyone you are keeping across rounds.
+`npm run onboard` copies in a sample role and the sample resumes so you can try it immediately. When you want your own, edit `yours/role.md` and replace the files in `yours/inbound/`.
 
 ## Your layer
 
 Everything personal lives in `yours/` (git-ignored), scaffolded from `yours.example/`:
 
-- `yours/role.md`: the role and your rubric (what a yes, a maybe, and a keep-for-later look like)
-- `yours/voice.md`: a couple of real messages you have sent, for when you want Sift to draft outreach in your voice
-- `yours/preferences.json`: research on or off, which sources to read, and whether outreach drafts or sends
-- `yours/inbound/`: drop your CSV or JSON exports here
+- `yours/role.md`: free text, in your own words, on who you are looking for
+- `yours/inbound/`: drop your resumes here (PDF, text, or markdown)
+- `yours/board.json`: the ranked result, written when you run
 
 Because you only ever edit `yours/`, you can pull updates to Sift without merge conflicts.
 
-## Gmail (optional)
+## What's next
 
-Sift can read applicants from a Gmail label, and, when you ask, write outreach as drafts you send yourself.
-
-1. Create an OAuth client (Desktop) in Google Cloud and enable the Gmail API.
-2. Scopes: `gmail.readonly` and `gmail.compose`.
-3. Put `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, and `GOOGLE_REFRESH_TOKEN` in `.env.local`.
-
-Sending stays off until you turn it on. By default Sift makes a draft and you press send.
+Once the list is ready, more can build on top of it: keeping every candidate across hiring rounds so a strong "not for this role" resurfaces later, and reaching out in your voice. Those layers live in the repo and switch on as the product grows.
 
 ## Deploy
 
-Run it locally with `npx eve dev`, the way a one-person desk runs. You can deploy to Vercel with `npx eve deploy`, but the board at `/board` and `/api/board` are unauthenticated and the data is yours, so gate any deployment behind Vercel Authentication before loading real applicants.
+Run it locally with `npx eve dev`, the way a one-person desk runs. You can deploy to Vercel with `npx eve deploy`, but the board at `/board` and `/api/board` are unauthenticated and the data is yours, so gate any deployment behind Vercel Authentication before loading real resumes.
 
 ## License
 

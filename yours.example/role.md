@@ -1,13 +1,11 @@
-# The role
+# Who I'm looking for
 
-Backend Engineer, early team, no internal recruiter.
+A founding backend engineer for our seed-stage startup. Real distributed-systems and
+backend depth, has shipped production systems on a small team, comfortable with ambiguity
+and breadth, ideally some startup or 0-to-1 experience.
 
-## What a yes looks like
-Ships real systems, has shipped something I can look at, writes clearly.
+Less of a fit: mostly frontend, mostly management, very junior with nothing shipped, or
+strong in a different domain.
 
-## What a maybe looks like
-Promising but I need one more signal (a project, a why-this-company).
-
-## What keep-for-later looks like
-Not right for this role, but worth remembering. Note what they might fit: a different
-level, or a role you open next. Only a truly no-signal applicant is nothing to act on.
+Write this in your own words. A sentence or two is plenty. Sift ranks every resume in
+yours/inbound/ against whatever you put here.
