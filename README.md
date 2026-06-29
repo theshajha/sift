@@ -1,5 +1,7 @@
 # Re:ply
 
+![Re:ply: from a pile of inbound to the right fit](public/twitter-banner.png)
+
 Inbound that answers everyone. Drafts you sign, never autopilot.
 
 You are hiring and the inbound is a flood. Re:ply reads it, tells you who is worth your time, and drafts a real reply for everyone else in your voice. You approve and send. Nobody gets ghosted.
