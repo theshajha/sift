@@ -50,7 +50,7 @@ Sending stays off until you turn it on during onboarding. By default Re:ply make
 
 ## Deploy
 
-Run it locally with `npx eve dev`, the way a one-person desk runs. You can deploy to Vercel with `npx eve deploy`, but the board and the Gmail token are single-operator for now. A hosted version with a real intake form is the next step.
+Run it locally with `npx eve dev`, the way a one-person desk runs. You can deploy to Vercel with `npx eve deploy`, but the board and the Gmail token are single-operator for now. A hosted version with a real intake form is the next step. The board at `/board` and `/api/board` are unauthenticated, so gate any deployment behind Vercel Authentication before loading real applicants.
 
 ## License
 

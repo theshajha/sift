@@ -28,6 +28,24 @@ const URL_RE = /\bhttps?:\/\/[^\s"')]+/g;
 const header = (headers: any[], name: string) =>
   headers.find((h) => h.name?.toLowerCase() === name.toLowerCase())?.value ?? "";
 
+function extractText(payload: any): string {
+  if (!payload) return "";
+  if (payload.mimeType === "text/plain" && payload.body?.data) {
+    return Buffer.from(payload.body.data, "base64url").toString("utf8");
+  }
+  if (Array.isArray(payload.parts)) {
+    for (const part of payload.parts) {
+      const text = extractText(part);
+      if (text) return text;
+    }
+  }
+  if (payload.body?.data) {
+    const raw = Buffer.from(payload.body.data, "base64url").toString("utf8");
+    return payload.mimeType === "text/html" ? raw.replace(/<[^>]+>/g, " ") : raw;
+  }
+  return "";
+}
+
 function parseFrom(from: string): { name: string; email: string } {
   const m = from.match(/^(.*?)\s*<([^>]+)>$/);
   if (m) return { name: m[1].replace(/"/g, "").trim(), email: m[2].trim() };
@@ -42,8 +60,7 @@ export async function listInbound(gmail: GmailApi, label: string): Promise<Inbou
     const headers = msg.data.payload?.headers ?? [];
     const { name, email } = parseFrom(header(headers, "From"));
     const subject = header(headers, "Subject");
-    const raw = msg.data.payload?.body?.data ?? "";
-    const message = raw ? Buffer.from(raw, "base64url").toString("utf8") : "";
+    const message = extractText(msg.data.payload);
     out.push(InboundCandidate.parse({
       id: createHash("sha1").update(`${email}|${subject}`).digest("hex").slice(0, 12),
       name, contact: email, roleAppliedFor: subject, message,

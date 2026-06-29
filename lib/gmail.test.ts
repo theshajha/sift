@@ -40,4 +40,25 @@ describe("gmail wrapper", () => {
     expect(id).toBe("d1");
     expect(gmail.users.drafts.create).toHaveBeenCalledOnce();
   });
+
+  it("extracts the text/plain part from a multipart message", async () => {
+    const gmail = {
+      users: {
+        messages: {
+          list: vi.fn().mockResolvedValue({ data: { messages: [{ id: "m1" }] } }),
+          get: vi.fn().mockResolvedValue({ data: { payload: {
+            headers: [{ name: "From", value: "Grace <grace@x.com>" }, { name: "Subject", value: "Eng" }],
+            mimeType: "multipart/alternative",
+            parts: [
+              { mimeType: "text/plain", body: { data: Buffer.from("portfolio https://grace.dev").toString("base64url") } },
+              { mimeType: "text/html", body: { data: Buffer.from("<p>ignore</p>").toString("base64url") } },
+            ],
+          } } }),
+        },
+        drafts: { create: vi.fn() },
+      },
+    } as any;
+    const rows = await listInbound(gmail, "INBOX");
+    expect(rows[0].links).toContain("https://grace.dev");
+  });
 });
