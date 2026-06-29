@@ -30,49 +30,60 @@
 
 :root {
   color-scheme: light;
-  /* Soft neutral page with white elevated surfaces so cards/composer pop. */
-  --background: oklch(0.971 0 0);
-  --foreground: oklch(0.16 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.16 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.16 0 0);
-  --primary: oklch(0.19 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.94 0 0);
-  --secondary-foreground: oklch(0.19 0 0);
-  --muted: oklch(0.94 0 0);
-  --muted-foreground: oklch(0.6 0 0);
-  --accent: oklch(0.94 0 0);
-  --accent-foreground: oklch(0.19 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.916 0 0);
-  --input: oklch(0.916 0 0);
-  --ring: oklch(0.708 0 0);
+  /* Re:Work brand: warm paper, fountain-pen ink, one teal accent (design.md). */
+  --background: hsl(43 33% 97%);
+  --foreground: hsl(45 9% 10%);
+  --card: hsl(0 0% 100%);
+  --card-foreground: hsl(45 9% 10%);
+  --popover: hsl(0 0% 100%);
+  --popover-foreground: hsl(45 9% 10%);
+  --primary: hsl(174 72% 25%);
+  --primary-foreground: hsl(43 33% 97%);
+  --secondary: hsl(42 28% 93%);
+  --secondary-foreground: hsl(42 10% 19%);
+  --muted: hsl(42 28% 93%);
+  --muted-foreground: hsl(40 7% 42%);
+  --accent: hsl(42 28% 93%);
+  --accent-foreground: hsl(42 10% 19%);
+  --destructive: hsl(0 70% 45%);
+  --border: hsl(41 26% 87%);
+  --input: hsl(41 26% 87%);
+  --ring: hsl(174 72% 25%);
   --radius: 0.625rem;
+  /* brand-only tokens */
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --attention: hsl(35 92% 38%);
+  --positive: hsl(142 60% 32%);
+  --neutral: hsl(40 12% 64%);
+  --ink-screener: hsl(240 28% 50%);
+  --ink-researcher: hsl(92 26% 34%);
+  --ink-responder: hsl(315 30% 50%);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     color-scheme: dark;
-    --background: oklch(0.145 0 0);
-    --foreground: oklch(0.985 0 0);
-    --card: oklch(0.205 0 0);
-    --card-foreground: oklch(0.985 0 0);
-    --popover: oklch(0.205 0 0);
-    --popover-foreground: oklch(0.985 0 0);
-    --primary: oklch(0.922 0 0);
-    --primary-foreground: oklch(0.205 0 0);
-    --secondary: oklch(0.269 0 0);
-    --secondary-foreground: oklch(0.985 0 0);
-    --muted: oklch(0.269 0 0);
-    --muted-foreground: oklch(0.708 0 0);
-    --accent: oklch(0.269 0 0);
-    --accent-foreground: oklch(0.985 0 0);
-    --destructive: oklch(0.704 0.191 22.216);
-    --border: oklch(1 0 0 / 10%);
-    --input: oklch(1 0 0 / 15%);
-    --ring: oklch(0.556 0 0);
+    --background: hsl(45 8% 8%);
+    --foreground: hsl(42 30% 94%);
+    --card: hsl(45 8% 11%);
+    --card-foreground: hsl(42 30% 94%);
+    --popover: hsl(45 8% 11%);
+    --popover-foreground: hsl(42 30% 94%);
+    --primary: hsl(172 50% 46%);
+    --primary-foreground: hsl(45 8% 8%);
+    --secondary: hsl(44 7% 15%);
+    --secondary-foreground: hsl(42 30% 94%);
+    --muted: hsl(44 7% 15%);
+    --muted-foreground: hsl(40 10% 63%);
+    --accent: hsl(44 7% 15%);
+    --accent-foreground: hsl(42 30% 94%);
+    --destructive: hsl(0 70% 55%);
+    --border: hsl(44 7% 18%);
+    --input: hsl(44 7% 18%);
+    --ring: hsl(172 50% 46%);
+    --ink-screener: hsl(240 38% 68%);
+    --ink-researcher: hsl(92 34% 56%);
+    --ink-responder: hsl(315 42% 70%);
   }
 }
 
