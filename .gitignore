@@ -1,16 +1,11 @@
-node_modules
-.env*
-.eve
-.vercel
-.workflow-data
-.next
-.output
-.nitro
-dist
 .DS_Store
-*.tsbuildinfo
 
-# Sift: the operator's private layer (never committed)
+# Your real searches live here and are never committed (the dir ships empty via .gitkeep).
+roles/*
+!roles/.gitkeep
+
+# Local secrets and the legacy private layer from the old app — never commit.
+.env*
 yours/
 
 # subagent-driven-development progress ledger (scratch)

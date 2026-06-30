@@ -4,49 +4,64 @@
 
 ![Sift: from a pile of inbound to the right fit](public/twitter-banner.png)
 
-Find the right candidates without reading the pile.
+Hiring buries you in resumes. Sift reads every one so you do not have to, and hands back a
+ranked shortlist: the best fits first, each with one plain line on why. Minutes, not an
+afternoon.
 
-Hiring buries you in resumes. Sift reads every one so you do not have to, and hands back a ranked shortlist: the best fits first, each with one plain line on why. Minutes, not an afternoon.
+Sift is not an app. It is the judgment, written down: a small set of plain-language
+instructions any agent can follow. You open this folder in your own agent, point it at your
+resumes, and it ranks them. Your resumes never leave your machine.
 
-Made by [Re:Work](https://rwhq.io). If you would rather someone just ran your hiring, that is what Re:Work does. This is the same judgment, open and yours to run.
+Made by [Re:Work](https://rwhq.io). If you would rather someone just ran your hiring, that is
+what Re:Work does. This is the same judgment, open and yours to run.
 
 ## How it works
 
-1. Tell Sift, in a sentence, who you are looking for.
-2. Drop your resumes into a folder (PDF or text).
-3. Run it. You get a ranked list, best fit first, each with one line on why.
+1. Make a folder for the role under `roles/`, and write a sentence or two in its `role.md` on
+   who you are looking for.
+2. Drop that role's resumes into the same folder (PDF, text, or markdown).
+3. Open this folder in your agent and say: rank the founding-backend-engineer folder. You get
+   a ranked list, best fit first, each with one line on why.
 
-It ships with a dozen sample resumes, so it works the second you clone it. Clear them out and drop in your own when you are ready.
+It ships with a worked example, `roles.example/founding-backend-engineer/`, with a sample role
+and a dozen sample resumes, so it works the second you have it. Copy it into `roles/` and make
+it yours, or point your agent straight at the example to try it.
 
-Built as an agent: the real work lives in plain-language instructions you can read and change. It runs locally with Claude or any agent, so your resumes never leave your machine.
+## What's in here
 
-## Quickstart
+- `instructions.md`: how Sift reads a folder and ranks it. Start here.
+- `skills/screen/`: the rubric, how a resume is scored from 0 to 100.
+- `schema.md`: the shape of the ranked list it hands back.
+- `roles.example/`: a worked example you can run today.
+- `roles/`: your real searches live here. Never committed.
 
-```bash
-npm install
-npm run onboard          # creates yours/ and asks who you are looking for
-npx eve dev              # then type: run, and open /board
+## Your folder
+
+Everything personal lives in `roles/` (git-ignored). One folder per search:
+
+```
+roles/
+  founding-backend-engineer/
+    role.md         # who you are looking for, in your words
+    <resumes>       # the resumes for this search
 ```
 
-`npm run onboard` copies in a sample role and the sample resumes so you can try it immediately. When you want your own, edit `yours/role.md` and replace the files in `yours/inbound/`.
+Run as many roles as you like. Each folder is one ranked list. Because you only ever edit
+`roles/`, you can pull updates to Sift without merge conflicts.
 
-## Your layer
+## After the list
 
-Everything personal lives in `yours/` (git-ignored), scaffolded from `yours.example/`:
+Two optional skills sit alongside the ranking, off by default, for when you want them. They
+run in your own agent, with your own connectors:
 
-- `yours/role.md`: free text, in your own words, on who you are looking for
-- `yours/inbound/`: drop your resumes here (PDF, text, or markdown)
-- `yours/board.json`: the ranked result, written when you run
+- `skills/research/`: read the public links a shortlisted candidate gave you.
+- `skills/outreach/`: draft outreach to the people worth your time and send it through your
+  own email connector. Sift never sends anything itself and never holds your credentials.
 
-Because you only ever edit `yours/`, you can pull updates to Sift without merge conflicts.
+## Run it anywhere
 
-## What's next
-
-Once the list is ready, more can build on top of it: keeping every candidate across hiring rounds so a strong "not for this role" resurfaces later, and reaching out in your voice. Those layers live in the repo and switch on as the product grows.
-
-## Deploy
-
-Run it locally with `npx eve dev`, the way a one-person desk runs. You can deploy to Vercel with `npx eve deploy`, but the board at `/board` and `/api/board` are unauthenticated and the data is yours, so gate any deployment behind Vercel Authentication before loading real resumes.
+Sift assumes no particular agent or model. It is plain markdown. Open it in Claude Code, or
+any agent that can read your files, and it works.
 
 ## License
 
